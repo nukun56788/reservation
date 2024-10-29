@@ -1,0 +1,10 @@
+<div class="main d-flex flex-wrap">
+    <div class="card" *ngFor="let event of data; ">
+      <div class="card-body">
+        <h5 class="card-title">{{ event.zone_name }}</h5>
+        <p class="card-text">{{ event.zone_info }}</p>
+        <p class="card-text">booth:{{ event.number_of_booths }}</p>
+        <a [routerLink]="['/booth', event.zone_id]" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>

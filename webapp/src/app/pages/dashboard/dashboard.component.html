@@ -1,0 +1,43 @@
+<h2>โซน</h2>
+<table>
+    <tbody>
+    <tr>
+      <th>Zone ID</th>
+      <th>ชื่อโซน</th>
+      <th>ข้อมูลโซน</th>
+      <th>จำนวนบูธ</th>
+      <!-- <th>Event ID</th> -->
+    </tr>
+    <tr *ngFor="let item of data">
+      <td>{{ item.zone_id }}</td>
+      <td>{{ item.zone_name }}</td>
+      <td>{{ item.zone_info }}</td>
+      <td>{{ item.number_of_booths }}</td>
+      <!-- <td>{{ item.event_id}}</td> -->
+      <td>
+        <button (click)="editZone(item)">Edit</button>
+        <button (click)="deleteZone(item.zone_name)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Form to add/update data -->
+  <!-- Form to add/update data -->
+<form (ngSubmit)="onSubmit()">
+
+<!-- Zone Name -->
+<input type="text" [(ngModel)]="currentData.zone_name" placeholder="Zone Name" name="zone_name" required>
+
+<!-- Zone Info -->
+<input type="text" [(ngModel)]="currentData.zone_info" placeholder="Zone Info" name="zone_info" required>
+
+<!-- Number of Booths -->
+<input type="number" [(ngModel)]="currentData.number_of_booths" placeholder="Number of Booths" name="number_of_booths" required>
+
+<!-- Event ID -->
+<!-- <input type="text" [(ngModel)]="currentData.event_id" placeholder="Event ID" name="event_id" required> -->
+
+<button type="submit">{{ editMode ? 'Update' : 'Add' }}</button>
+</form>
+

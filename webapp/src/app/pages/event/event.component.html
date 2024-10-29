@@ -1,0 +1,34 @@
+<!-- <app-layout></app-layout> -->
+ <h2>อีเวนท์</h2>
+<table>
+    <tbody>
+        <tr>
+            <th>ชื่อ อีเวนท์</th>
+            <th>วันเริ่มงาน</th>
+            <th>วันสิ้นสุดงาน</th>
+          </tr>
+          <tr *ngFor="let item of data">
+            <td>{{ item.event_name }}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.date_end }}</td>
+            <td>
+              <button (click)="editEvent(item)">Edit</button>
+              <!-- <button (click)="deleteZone(item.event_name)">Delete</button> -->
+            </td>
+          </tr>
+    </tbody>
+  </table>
+
+  
+<form (ngSubmit)="onSubmit()">
+
+<input type="text" [(ngModel)]="currentData.event_name" placeholder="Event Name" name="event_name" required>
+
+<input type="date" [(ngModel)]="currentData.date" placeholder="DateStart" name="date" required>
+
+<input type="date" [(ngModel)]="currentData.date_end" placeholder="DateEnd" name="date_end" required>
+
+
+<button type="submit">{{ editMode ? 'Update' : 'Add' }}</button>
+</form>
+

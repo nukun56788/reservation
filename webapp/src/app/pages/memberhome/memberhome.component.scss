@@ -1,0 +1,80 @@
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  /* Sidebar styling */
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #000000;
+    overflow-x: hidden;
+    transition: 0.3s ease;
+    padding-top: 60px;
+    z-index: 1;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 25px;
+  }
+  
+  /* When sidebar is active */
+  .sidebar.active {
+    width: 250px; /* กำหนดความกว้างเมื่อแถบแสดง */
+  }
+  
+  /* Add a smooth transition effect for sidebar */
+  .sidebar ul li:hover {
+    background-color: #575757;
+  }
+  
+  /* Close button (X) in sidebar */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 36px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  /* เพิ่ม hover effect สำหรับปุ่มกากบาท */
+  .close-btn:hover {
+    color: #f1f1f1;
+  }
+  
+  @media (max-width: 630px){
+    .nav-links {
+      opacity: 0;
+    }
+    .sidebar{
+      opacity: 1;
+    }
+  }
+  

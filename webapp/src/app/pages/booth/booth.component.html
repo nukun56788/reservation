@@ -1,0 +1,48 @@
+<h2>บูธ</h2>
+<table>
+    <tbody>
+    <tr>
+      <th>Booth ID</th>
+      <th>ชื่อบูธ</th>
+      <th>ขนาดบูธ</th>
+      <th>สินค้า</th>
+      <th>สถานะการจอง</th>
+      <th>ราคา</th>
+      <th>Zone ID</th>
+      <!-- <th>Event ID</th> -->
+    </tr>
+    <tr *ngFor="let item of data">
+      <td>{{ item.booth_id }}</td>
+      <td>{{ item.booth_name }}</td>
+      <td>{{ item.booth_size }}</td>
+      <td>{{ item.booth_products }}</td>
+      <td>{{ item.booth_status }}</td>
+      <td>{{ item.price }}</td>
+      <td>{{ item.zone_id }}</td>
+      <!-- <td>{{ item.event_id}}</td> -->
+      <td>
+        <button (click)="editBooth(item)">Edit</button>
+        <button (click)="deleteBooth(item.booth_name)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Form to add/update data -->
+  <!-- Form to add/update data -->
+<form (ngSubmit)="onSubmit()">
+
+
+<input type="text" [(ngModel)]="currentData.booth_name" placeholder="Booth Name" name="booth_name" required>
+
+<input type="text" [(ngModel)]="currentData.booth_size" placeholder="Booth Size" name="booth_size" required>
+
+<input type="text" [(ngModel)]="currentData.booth_products" placeholder="Product" name="booth_products" required>
+
+<input type="number" [(ngModel)]="currentData.price" placeholder="Price" name="price" required>
+
+<input type="text" [(ngModel)]="currentData.zone_id" placeholder="Zone ID" name="zone_id" required>
+
+<button type="submit">{{ editMode ? 'Update' : 'Add' }}</button>
+</form>
+

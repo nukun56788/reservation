@@ -1,0 +1,32 @@
+<div>
+    <mat-toolbar
+      class="fxLayout dark"
+      style="width: 100%; height: 80px; flex-direction: row; justify-content: space-between; background-color: black; color: ghostwhite;"
+    >
+      <div class="fxLayout" style="flex-direction: row; align-items: center">
+        <mat-icon></mat-icon>
+        <span>&nbsp;Booking Booth</span>
+      </div>
+      <nav class="navbar">
+        <div class="menu-icon" (click)="toggleSidebar()">
+          &#9776;
+        </div>
+      </nav>
+    </mat-toolbar>
+
+    <!-- Sidebar -->
+    <div class="sidebar" [ngClass]="{ active: sidebarVisible }">
+      <a href="javascript:void(0)" class="close-btn" (click)="toggleSidebar()">&times;</a>
+      <ul>
+        <li><a routerLink="/home">โซน</a></li>
+        <li><a routerLink="/boothmember">บูธ</a></li>
+        <!-- <li><a routerLink="/login">เข้าสู่ระบบ/สมัครสมาชิก</a></li> -->
+        <!-- <li><a routerLink="/admin">admin page</a></li> -->
+      </ul>
+    </div>
+
+    <!-- Content area -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+</div>
